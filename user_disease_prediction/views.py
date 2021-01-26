@@ -13,6 +13,7 @@ def home(request):
         if form.is_valid():
             #user_symptoms from form
             user_symptoms = form.cleaned_data['user_symptoms']
+            user_symptoms_text = ', '.join([symptom.capitalize().replace('_', ' ') for symptom in user_symptoms])
             while len(user_symptoms) < 17:
                 user_symptoms.append('No Symptom')
 
@@ -42,7 +43,13 @@ def home(request):
             disease_precaution_description['Description'] = disease_precaution_description['Description'].fillna('No Description for this Disease Found')
             #Conver information about disease to dictionary
             precaution_description_dict = disease_precaution_description.T.to_dict()
-            return render(request, 'prediction.html', {'results': precaution_description_dict})
+            return render(request, 'prediction.html', {'results': precaution_description_dict, 'user_symptoms': user_symptoms_text})
     else:
         form = UserInput
     return render(request, 'user_symptoms.html', {'form': form})
+
+def about_model(request):
+    return render(request, 'Model.html')
+
+def about_data(request):
+    return render(request, 'DataSet exploration.html')

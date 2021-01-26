@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_disease_prediction',
     'crispy_forms',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [

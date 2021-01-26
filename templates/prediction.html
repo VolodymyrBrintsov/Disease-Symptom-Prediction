@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1>You symptoms:</h1>
+<p>{{user_symptoms}}</p>
 {% for disease, descriptions_precaution_probability in results.items %}
-    <h1>Disease: {{disease}} <small>(with probability {{descriptions_precaution_probability.Probability}})</small></h1>
+    <h3>Disease: {{disease}} <small>(with probability {{descriptions_precaution_probability.Probability}})</small></h3>
     <p>Description: {{descriptions_precaution_probability.Description}}</p>
     <p>Precautions: {{descriptions_precaution_probability.Precautions}}</p>
 {% endfor %}
