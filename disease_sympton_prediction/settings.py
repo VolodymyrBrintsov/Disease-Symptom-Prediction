@@ -24,7 +24,7 @@ SECRET_KEY = 'yg@o5dcf$t8gm(b9@1#5+w-nv8+qqr+)@f%i=)k9cqi1k#e8_d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+import django_heroku
 ALLOWED_HOSTS = []
 
 
@@ -122,3 +122,5 @@ USE_TZ = True
 import os
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# Activate Django-Heroku.
+django_heroku.settings(locals())
